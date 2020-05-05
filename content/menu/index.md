@@ -1,5 +1,5 @@
 ---
-headless: false
+headless: true
 ---
 
 - [**Example Site**]({{< relref "/docs/example" >}})
@@ -12,17 +12,7 @@ headless: false
 <br />
 
 - **Shortcodes**
-- [Buttons]({{< relref "/docs/shortcodes/buttons" >}})
-- [Columns]({{< relref "/docs/shortcodes/columns" >}})
-- [Expand]({{< relref "/docs/shortcodes/expand" >}})
-- [Hints]({{< relref "/docs/shortcodes/hints" >}})
-- [Katex]({{< relref "/docs/shortcodes/katex" >}})
-- [Mermaid]({{< relref "/docs/shortcodes/mermaid" >}})
-- [Tabs]({{< relref "/docs/shortcodes/tabs" >}})
-<br />
-
-- **aaaaaShortcodes**
-- [Buttons]({{< relref "/docs/shortcodes/buttons" >}})
+- [Buttons111]({{< relref "/docs/shortcodes/buttons" >}})
 - [Columns]({{< relref "/docs/shortcodes/columns" >}})
 - [Expand]({{< relref "/docs/shortcodes/expand" >}})
 - [Hints]({{< relref "/docs/shortcodes/hints" >}})
