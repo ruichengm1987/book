@@ -1,5 +1,5 @@
 ---
-title: GoLang
+title: Go
 bookCollapseSection: true
 weight: 1
 ---
