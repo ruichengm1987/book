@@ -6,4 +6,4 @@ weight: 44
 
 # 4.4.Mybatis
 
-教程: https://www.bilibili.com/video/BV1mE411X7yp?p=5
+文档: https://mybatis.org/mybatis-3/zh/index.html
