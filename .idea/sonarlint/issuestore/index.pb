@@ -127,15 +127,13 @@ I
 content/docs/go/安装.md,b/0/b0b757ef275a53e9265b64bee2f75ee7012f2ded
 M
 content/docs/docker/_index.md,0/8/084e05165f98128df9b82c583d86758b1e91a714
-X
-(content/docs/docker/1.docker的安装.md,6/2/623c348498122f34ad8a32779b5de4d49062180e
 E
 content/menu/index.md,2/2/229da773ef1cc6644e3f89cec108abd3c06dc887
 @
 content/about.md,e/7/e78bb92e1c337c2daf9b63aed231056eaf6e4b9e
-[
-+content/docs/docker/2.Docker核心概念.md,1/7/17249b2ed5585a0f144e7acbd1c0b0a8bb665603
-p
-@content/docs/docker/3.Docker环境下如何配置你的镜像.md,e/8/e84a3e14ec109e998edbf9638df8d10d682eb010
-�
-Qcontent/docs/docker/10.资源限制:如何通过Cgroup机制实现资源限制.md,d/0/d023d12a35403551c890adc6caf95ac0e781e238
+N
+content/docs/notices/_index.md,9/c/9c94389cf61248f664a412f2d04d3384df7c407a
+V
+&content/docs/notices/成神之路/1.md,6/4/6406f317d775016e02c3a1bbce26b3990e3d593d
+P
+ content/docs/algorithm/_index.md,8/f/8ff9b254c710e64524436a78c8d865e49eb7904b
