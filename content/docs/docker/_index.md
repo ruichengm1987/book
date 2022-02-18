@@ -192,48 +192,67 @@ docker build -f dockerfile文件路径 -t 镜像名:[tag] .
 ### 5.4、研究人家dockerfile如何做的
 docker history 镜像id
 
+### 5.5、CMD和ENTRYPOINT 区别
+CMD          #指定这个容器启动的时候要运行的命令，只有最后一个会生效，可被替代
+ENTRYPOINT   #指定这个容器启动的时候要运行的命令,可以追加命令
 
-## 5、目录挂载
-### 5.1、现存问题
-* 使用 Docker 运行后，我们改了项目代码不会立刻生效，需要重新build和run，很是麻烦。
-* 容器里面产生的数据，例如 log 文件，数据库备份文件，容器删除后就丢失了。
+### 5.6、发布自己的镜像
+git push [容器名]:[版本号]
 
-### 5.2、几种挂载方式
-* bind mount 直接把宿主机目录映射到容器内，适合挂代码目录和配置文件。可挂到多个容器上
-* volume 由容器创建和管理，创建在宿主机，所以删除容器不会丢失，官方推荐，更高效，Linux 文件系统，适合存储数据库数据。可挂到多个容器上
-* tmpfs mount 适合存储临时文件，存宿主机内存中。不可多容器共享。
-文档参考: https://docs.docker.com/storage/
+## 6、Docker网络
+### 6.1、原理
+我们每启动一个docker容器 docker就会给docker容器分配一个ip,我们只要安装了docker，就会有一个网卡docker0
 
-### 5.3、挂载演示
-//todo::
+桥接模式，使用的技术是evth-pair技术
 
-## 6、多容器通信
-项目往往都不是独立运行的，需要数据库、缓存这些东西配合运作。
-这节我们把前面的 Web 项目增加一个 Redis 依赖，多跑一个 Redis 容器，演示如何多容器之间的通信。
+```aidl
+我们发现这个容器带来的网卡，都是一对对的  
+evth-pair 就是一对虚拟设备接口，他们都是成对出现的，一段俩这协议，一段彼此相连
+正以为有这个特性，evth-pair充当了桥梁，连接各种虚拟网络设备的
+openstac docker容器之间的连接，都是使用evth-pair技术
+```
 
-### 6.1、创建虚拟网络
-要想多容器之间互通，从 Web 容器访问 Redis 容器，我们只需要把他们放到同个网络中就可以了。
-文档参考：https://docs.docker.com/engine/reference/commandline/network/
+容器和容器之间是可以互相ping通的
 
-### 6.2、演示
-//todo::
+### 6.2、--link
+思考一个场景，我们编写了一个微服务,database url=ip 项目不重启，数据库ip换掉了，我们希望可以处理这个问题。可以名字来进行访问吗？
 
-## 7、Docker-Compose
-### 7.1、现存问题
-如果项目依赖更多的第三方软件，我们需要管理的容器就更加多，每个都要单独配置运行，指定网络。我们使用 docker-compose 把项目的多个服务集合到一起，一键运行。
+docker run -d -P -name tomcat03 --link tomcat02 tomcat   
+docker exec -it tomcate ping tomcate02
 
-### 7.2、安装 Docker Compose
-//todo::
+### 6.3、自定义网络
+#### 6.3.1、网络模式
+* bridge: 桥接docker （默认,自己创建也使用bridge模式）
+* none: 不配置网络
+* host: 和宿主机共享网络
+* container: 容器网络连通 (用的少,局限很大)
 
-### 7.3、编写脚本
-//todo::
+```aidl
+#我们直接启动的命令 --net 吧 ridge， 而这个就是我们的docker0
+docker  run -d -P --name tomcat01 --net bridge tomcat
 
-### 7.4、跑起来
-//todo::
+# docker0特点, 默认，域名不能访问, --link可以打通连接
 
-## 8、发布和部署
-//todo::
+# 我们可以自定义一个网络
+# --driver bridge
+# --subnet 192.168.0.0/16 192.168.0.0/24
+# --gateway 192.168.0.1
+docker network create  --driver bridge --subnet 192.168.0.0、16 --gateway --gateway 192.168.0.1 mynet
+```
+我们自定义的网络docker都已经帮我们维护好了对应的关系，推荐我们平时这样使用网络
 
-## 9、备份和迁移数据
+#### 6.3.2、网络连通
+docker network connect mynet tomcat01
+
+## 7、redis集群部署实战
+// todo::
+
+## 8、微服务打包docker镜像
+
+## 9、Docker compose
+
+## 10、Docker Swarm
+
+## 11、CICD
 
 
