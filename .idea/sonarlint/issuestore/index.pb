@@ -125,3 +125,13 @@ q
 Acontent/docs/jiagou/二、架构/1.如何设计可扩展架构.md,b/1/b1d45ccfe46447934ddf1df0670692668c64558e
 q
 Acontent/docs/jiagou/二、架构/2.如何设计高性能架构.md,c/4/c48a74279925606bb21abbb95794fde5c5e96972
+^
+.content/docs/go/6.文件目录操作/_index.md,7/c/7c71ee99a990c4912e3a57d8663ee73c0a6efd5c
+T
+$content/docs/algorithm/堆/_index.md,6/f/6ffb93b120f09dc6e05366538dcbacae0151458a
+J
+content/docs/alg/_index.md,8/f/8fa1d8ba3041560953acfc5edcba591ebb2f6a6a
+G
+content/docs/alg/栈.md,6/f/6fa7249d6a13a1a8f4f40ed4d27e89af4884a9a5
+J
+content/docs/alg/链表.md,4/b/4b9f8b42c0592aae90bdb99af85c8d783e96838b
